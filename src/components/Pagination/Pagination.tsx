@@ -4,7 +4,7 @@ type PaginationType = {
   total: number;
   perPage: number;
   currentPage: number;
-  onPageChange: (page: string) => void;
+  onPageChange: (page: number) => void;
 };
 
 export const Pagination = ({
@@ -37,7 +37,7 @@ export const Pagination = ({
             onClick={event => {
               event.preventDefault();
               if (currentPage - 1 > 0) {
-                onPageChange(String(currentPage - 1));
+                onPageChange(currentPage - 1);
               }
             }}
           >
@@ -59,7 +59,7 @@ export const Pagination = ({
                 href={`#${page}`}
                 onClick={event => {
                   event.preventDefault();
-                  onPageChange(String(page));
+                  onPageChange(page);
                 }}
               >
                 {page}
@@ -81,7 +81,7 @@ export const Pagination = ({
             onClick={event => {
               event.preventDefault();
               if (currentPage + 1 <= maxPages) {
-                onPageChange(String(currentPage + 1));
+                onPageChange(currentPage + 1);
               }
             }}
           >

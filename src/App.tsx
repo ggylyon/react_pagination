@@ -20,6 +20,7 @@ export const App: React.FC = () => {
 
   const totalPages = items.length;
   const perPage = Number(searchParams.get('perPage')) || 5;
+
   const maxPages = Math.ceil(totalPages / perPage);
 
   let currentPage = Number(searchParams.get('page')) || 1;
@@ -69,7 +70,7 @@ export const App: React.FC = () => {
         total={totalPages}
         perPage={perPage}
         currentPage={currentPage}
-        onPageChange={(page: string) => onDataChange('page', page)}
+        onPageChange={(page: number) => onDataChange('page', String(page))}
       />
       <ul>
         {items.slice(currentPageMinItems - 1, currentPageMaxItems).map(item => {
